@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Test1</key>
+	<array>
+		<dict>
+			<key>questionName</key>
+			<string>What is your name?</string>
+			<key>options</key>
+			<array>
+				<string>Sim</string>
+				<string>James</string>
+				<string>Steve</string>
+				<string>David</string>
+			</array>
+			<key>correctAnswere</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>What is your age?</string>
+			<key>options</key>
+			<array>
+				<string>25</string>
+				<string>16</string>
+				<string>30</string>
+				<string>29</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>What is your favourite sport?</string>
+			<key>options</key>
+			<array>
+				<string>Baseball</string>
+				<string>Football</string>
+				<string>Cricket</string>
+				<string>Soccer</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>3</string>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>How many O&apos;s in Fortinos?</string>
+			<key>options</key>
+			<array>
+				<string>2</string>
+				<string>1</string>
+				<string>0</string>
+				<string>8</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>0</string>
+		</dict>
+	</array>
+	<key>Test2</key>
+	<array>
+		<dict>
+			<key>questionName</key>
+			<string>How long have you used our products/service?</string>
+			<key>options</key>
+			<array>
+				<string>Less than 6 months</string>
+				<string>1 year to less than 3 years</string>
+				<string>3 years to less than 5 years</string>
+				<string>5 years or more</string>
+			</array>
+			<key>correctAnswere</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>How would you rate your overall satisfaction with us?</string>
+			<key>options</key>
+			<array>
+				<string>Very satisfied</string>
+				<string>Somewhat satified</string>
+				<string>Neutral</string>
+				<string>Dissatisfied</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>2</string>
+		</dict>
+	</array>
+	<key>Test3</key>
+	<array>
+		<dict>
+			<key>questionName</key>
+			<string>Which is best country to live?</string>
+			<key>options</key>
+			<array>
+				<string>Canada</string>
+				<string>USA</string>
+				<string>New Zealand</string>
+				<string>Italy</string>
+			</array>
+			<key>correctAnswere</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>Which is your favourite season?</string>
+			<key>options</key>
+			<array>
+				<string>Summer</string>
+				<string>Winter</string>
+				<string>Fall</string>
+				<string>Spring</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>3</string>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>Which is your favourite shopping store?</string>
+			<key>options</key>
+			<array>
+				<string>Hudson Bay</string>
+				<string>Mark</string>
+				<string>Old Navy</string>
+				<string>Guess</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>0</string>
+		</dict>
+	</array>
+	<key>Test4</key>
+	<array>
+		<dict>
+			<key>questionName</key>
+			<string>What is your majors?</string>
+			<key>options</key>
+			<array>
+				<string>Science</string>
+				<string>Engineering</string>
+				<string>Maths</string>
+				<string>Arts</string>
+			</array>
+			<key>correctAnswere</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>What is your age?</string>
+			<key>options</key>
+			<array>
+				<string>25</string>
+				<string>16</string>
+				<string>30</string>
+				<string>29</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>questionName</key>
+			<string>What is your favourite picnic spot?</string>
+			<key>options</key>
+			<array>
+				<string>Niagra Falls</string>
+				<string>CN Tower</string>
+				<string>Orlando</string>
+				<string>Hiking</string>
+			</array>
+			<key>correctAnswere</key>
+			<string>3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
