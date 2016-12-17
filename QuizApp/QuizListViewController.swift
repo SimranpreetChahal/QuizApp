@@ -13,39 +13,15 @@
 import Foundation
 import UIKit
 
-public struct Question {
-    let question: String
-    let answers: [String]
-    let correctAnswer: Int
-}
-
 class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var tests:[String:[Question]]!
-    var questions: [Question] = [
-        Question(
-            question: "How many O's in Fortinos",
-            answers: ["2", "0", "14", "9"],
-            correctAnswer: 0),
-        Question(
-            question: "What comes down but never goes up",
-            answers: ["ABC", "X", "L", "SDF"],
-            correctAnswer: 2),
-        Question(
-            question: "What occurs once in an min...",
-            answers: ["sd", "dssd", "cxc", "ccsff"],
-            correctAnswer: 3)
-    ]
+    var tests = Dictionary<String, Any>()
 
-    var keys : [String]!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "APrivacy"
-        self.tests = ["Test1":self.questions,
-        "Test2":self.questions, "Test3":self.questions]
-        self.keys = Array(self.tests.keys)
-        
+        self.readPropertyList()
         self.tableView.reloadData()
     }
     
@@ -55,7 +31,10 @@ class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath)
-            cell.detailTextLabel?.text = self.keys[indexPath.row] as String
+        let detailText = Array(self.tests.keys.sorted())[indexPath.row] as String
+
+        cell.textLabel?.text = detailText
+        cell.detailTextLabel?.text = ""
         return cell
     }
     
@@ -66,11 +45,22 @@ class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "questionDetail") {
-            let indexPath = self.tableView.indexPathForSelectedRow
-            let row = indexPath?.row
+            let selectedCell = tableView.cellForRow(at: sender as! IndexPath)
+            let selectedTest = selectedCell?.textLabel?.text
+            let selectedQuestionsSet = self.tests[selectedTest!] as! NSArray
+            print (selectedQuestionsSet)
+            
             if let questionDetailVC = segue.destination as? QuizDetailViewController {
-                //questionDetailVC.questions = self.tests[self.keys[indexPath.row] as String]
+                questionDetailVC.questionsSet = selectedQuestionsSet as! Array<Any>
             }
+        }
+    }
+    
+    //MARK: private methods
+    func readPropertyList() {
+        if let path = Bundle.main.path(forResource: "tests_data", ofType: "plist") {
+            let data:NSData? = NSData(contentsOfFile: path)
+            self.tests = try! PropertyListSerialization.propertyList(from: data as! Data, options:[], format: nil) as! Dictionary
         }
     }
 }

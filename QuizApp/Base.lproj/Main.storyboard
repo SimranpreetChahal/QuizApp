@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="questionCell" textLabel="jWg-m7-9AI" style="IBUITableViewCellStyleDefault" id="iNE-Vc-wab">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="questionCell" textLabel="jWg-m7-9AI" detailTextLabel="CSL-bg-E8R" style="IBUITableViewCellStyleSubtitle" id="iNE-Vc-wab">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iNE-Vc-wab" id="VIf-3s-3Pf">
@@ -50,17 +50,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jWg-m7-9AI">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CSL-bg-E8R">
+                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="lcI-p9-GDi" kind="showDetail" identifier="questionDetail" id="OUL-qa-fED"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -83,6 +87,7 @@
                     <navigationItem key="navigationItem" id="uZR-NG-pCA"/>
                     <connections>
                         <outlet property="tableView" destination="lH7-Ah-bur" id="Q3Z-v7-qL7"/>
+                        <segue destination="lcI-p9-GDi" kind="show" identifier="questionDetail" id="xHC-SL-NFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdi-T7-Bew" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,13 +127,46 @@
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answereCell" id="qyM-oI-Hc0" customClass="RadioCell" customModule="QuizApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="radioCell" id="qyM-oI-Hc0" customClass="RadioCell" customModule="QuizApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qyM-oI-Hc0" id="PmT-gA-R1L">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCf-5b-yvV">
+                                                    <rect key="frame" x="8" y="0.0" width="46" height="29.5"/>
+                                                    <state key="normal" title="Button" image="radio"/>
+                                                    <connections>
+                                                        <action selector="checkCell:" destination="qyM-oI-Hc0" eventType="touchUpInside" id="hJo-oj-IxT"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quX-Zj-R2e">
+                                                    <rect key="frame" x="101" y="0.0" width="253" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="253" id="NFY-mS-wXz"/>
+                                                        <constraint firstAttribute="height" constant="30" id="eLg-dQ-xSm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="quX-Zj-R2e" firstAttribute="leading" secondItem="cCf-5b-yvV" secondAttribute="trailing" constant="47" id="49a-ph-Wlz"/>
+                                                <constraint firstAttribute="trailing" secondItem="quX-Zj-R2e" secondAttribute="trailing" constant="21" id="4yX-z6-tuZ"/>
+                                                <constraint firstItem="quX-Zj-R2e" firstAttribute="leading" secondItem="cCf-5b-yvV" secondAttribute="trailing" constant="47" id="6m0-B4-3ix"/>
+                                                <constraint firstItem="cCf-5b-yvV" firstAttribute="leading" secondItem="PmT-gA-R1L" secondAttribute="leading" constant="8" id="RgL-ju-cxF"/>
+                                                <constraint firstItem="quX-Zj-R2e" firstAttribute="top" secondItem="PmT-gA-R1L" secondAttribute="top" id="U8g-iE-icS"/>
+                                                <constraint firstItem="cCf-5b-yvV" firstAttribute="top" secondItem="PmT-gA-R1L" secondAttribute="top" id="XN9-LY-zTY"/>
+                                                <constraint firstAttribute="bottom" secondItem="cCf-5b-yvV" secondAttribute="bottom" constant="14" id="atK-3k-xvt"/>
+                                                <constraint firstAttribute="bottom" secondItem="quX-Zj-R2e" secondAttribute="bottom" constant="14" id="uFf-rL-Iu0"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="answereLabel" destination="quX-Zj-R2e" id="Atd-YZ-74s"/>
+                                            <outlet property="radioButton" destination="cCf-5b-yvV" id="9Vf-Ea-GLj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -150,11 +188,13 @@
                     </view>
                     <connections>
                         <outlet property="detailTableView" destination="Fvo-Gq-IKn" id="LbP-Hg-OLV"/>
+                        <outlet property="questionNameLabel" destination="SC1-ud-IFB" id="VpT-5e-YYi"/>
+                        <segue destination="z8a-Us-0tD" kind="show" identifier="showSummary" id="0Ut-IE-HSp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rev-ql-0Wu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="9"/>
+            <point key="canvasLocation" x="1040.8" y="8.5457271364317844"/>
         </scene>
         <!--Quiz Summary View Controller-->
         <scene sceneID="9Od-xp-hcR">
@@ -230,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5P-Lo-jwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="9"/>
+            <point key="canvasLocation" x="1780" y="9"/>
         </scene>
         <!--APrivacy-->
         <scene sceneID="AjJ-xd-eYb">
@@ -251,4 +291,7 @@
             <point key="canvasLocation" x="-714.39999999999998" y="-3.1484257871064472"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="radio" width="24" height="24"/>
+    </resources>
 </document>
