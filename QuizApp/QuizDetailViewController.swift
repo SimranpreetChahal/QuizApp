@@ -16,9 +16,9 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     
     var questionsSet: Array<Any>!
     var currentIndex: Int = 0
-    
     var currentQuestionOptions:[String] = []
     var currentQuestionCorrectAnswere: NSNumber = 0.0
+    var selectedAnswere:Int = 0
     var answereSet: [String:String] = [:]
     
     override func viewDidLoad() {
@@ -41,21 +41,31 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "radioCell") as! RadioCell
-        cell.checked = false
-        cell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
-        cell.delegate = self
+        //cell.checked = false
         cell.answereLabel.text = currentQuestionOptions[indexPath.row] as String
+        if(!cell.isChecked()){
+            cell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
+        }else {
+            cell.radioButton.setImage(UIImage(named: "radio-selected"),for: UIControlState.normal)
+            self.selectedAnswere = indexPath.row
+            cell.setIsChecked(false)
+        }
+        cell.delegate = self
+
         return cell
     }
 
     func showNextQuestion(sender: UIBarButtonItem) {
-       // if(self.currentIndex < questionsSet.count) {
-            loadQuestion(self.currentIndex)
-       // }
+        if(self.selectedAnswere == Int(self.currentQuestionCorrectAnswere)) {
+            self.alert(message: "Correct Answere", title: "Success")
+        }else {
+            self.alert(message: "Oops! you answered it incorrect", title: "Oops!")
+        }
+        loadQuestion(self.currentIndex)
     }
 
     func showSummaryScreen(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showSummary", sender: answereSet)
+        performSegue(withIdentifier:"showSummary", sender: answereSet)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,13 +88,20 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
         }
     }
     
+    func alert(message: String, title: String = "") {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     func didSelectRadioButton(_ checkedCell: RadioCell,on:Bool) {
         if(on) {
             checkedCell.radioButton.setImage(UIImage(named: "radio-selected"),for: UIControlState.normal)
         } else {
             checkedCell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
         }
-        checkedCell.checked = !on
-        
+        checkedCell.setIsChecked(on)
+        self.detailTableView.reloadData()
     }
 }

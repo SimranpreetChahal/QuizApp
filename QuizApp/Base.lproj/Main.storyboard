@@ -225,7 +225,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxm-7g-LAc">
-                                <rect key="frame" x="0.0" y="287" width="375" height="328"/>
+                                <rect key="frame" x="0.0" y="287" width="375" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="simmaryCell" textLabel="OzW-ur-r3R" style="IBUITableViewCellStyleDefault" id="Mmz-9E-4qe">
@@ -259,7 +259,7 @@
                             <constraint firstAttribute="trailing" secondItem="dxm-7g-LAc" secondAttribute="trailing" id="Qq5-zY-vFm"/>
                             <constraint firstAttribute="trailing" secondItem="7rg-hX-13p" secondAttribute="trailing" id="RBi-By-NFA"/>
                             <constraint firstItem="dxm-7g-LAc" firstAttribute="top" secondItem="7rg-hX-13p" secondAttribute="bottom" constant="-1" id="VsD-1a-FUz"/>
-                            <constraint firstItem="mp6-vb-1G4" firstAttribute="top" secondItem="dxm-7g-LAc" secondAttribute="bottom" constant="8" id="mDz-Oe-tp2"/>
+                            <constraint firstItem="mp6-vb-1G4" firstAttribute="top" secondItem="dxm-7g-LAc" secondAttribute="bottom" constant="-44" id="mDz-Oe-tp2"/>
                             <constraint firstItem="7rg-hX-13p" firstAttribute="top" secondItem="Cyu-Go-Axt" secondAttribute="bottom" id="yQR-nB-I1U"/>
                         </constraints>
                     </view>
