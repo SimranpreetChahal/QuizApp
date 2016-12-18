@@ -56,6 +56,8 @@ class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
+    @IBAction func unwindToTests(segue: UIStoryboardSegue) {
+    }
     //MARK: private methods
     func readPropertyList() {
         if let path = Bundle.main.path(forResource: "tests_data", ofType: "plist") {

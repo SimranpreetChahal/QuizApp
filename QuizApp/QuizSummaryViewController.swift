@@ -15,6 +15,23 @@ class QuizSummaryViewController:UIViewController,UITableViewDelegate,UITableView
     
     @IBOutlet weak var sumaryTableView: UITableView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let leftButton = UIBarButtonItem(
+            title: "Back",
+            style: .plain,
+            target: self,
+            action: #selector(backToTests(sender:))
+        )
+        self.navigationItem.leftBarButtonItem = leftButton
+
+    }
+    
+    func backToTests(sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToTests", sender: self)
+    }
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answeres.count
     }
