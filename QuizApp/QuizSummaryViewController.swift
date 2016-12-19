@@ -40,9 +40,9 @@ class QuizSummaryViewController:UIViewController,UITableViewDelegate,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell
         cell.summaryLabel.text = Array(answeres.keys)[indexPath.row] as String
         if (Array(answeres.values)[indexPath.row] as Bool == true) {
-            cell.cellImage?.image = UIImage(named:"checkbox-selected")
+            cell.cellImage?.image = UIImage(named:"correct")
         }else {
-            cell.cellImage?.image = UIImage(named:"checkbox")
+            cell.cellImage?.image = UIImage(named:"wrong")
         }
         return cell
     }

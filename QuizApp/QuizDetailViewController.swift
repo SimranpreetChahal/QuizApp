@@ -23,6 +23,7 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let rightButton = UIBarButtonItem(
             title: "Next",
             style: .plain,
@@ -30,7 +31,7 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
             action: #selector(showNextQuestion(sender:))
         )
         self.navigationItem.rightBarButtonItem = rightButton
-        
+        self.navigationItem.backBarButtonItem?.title = "Back"
         self.loadQuestion(0)
     }
     
@@ -41,7 +42,6 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "radioCell") as! RadioCell
-        //cell.checked = false
         cell.answereLabel.text = currentQuestionOptions[indexPath.row] as String
         if(!cell.isChecked()){
             cell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
@@ -58,7 +58,6 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     func showNextQuestion(sender: UIBarButtonItem) {
         if(self.selectedAnswere == Int(self.currentQuestionCorrectAnswere)) {
             answereSet[self.questionNameLabel.text!] = true
-
             self.alert(message: "Correct Answere", title: "Success")
         }else {
             answereSet[self.questionNameLabel.text!] = false
