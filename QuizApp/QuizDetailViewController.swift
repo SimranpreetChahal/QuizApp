@@ -19,7 +19,7 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     var currentQuestionOptions:[String] = []
     var currentQuestionCorrectAnswere: NSNumber = 0.0
     var selectedAnswere:Int = 0
-    var answereSet: [String:String] = [:]
+    var answereSet: [String:Bool] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +57,14 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
 
     func showNextQuestion(sender: UIBarButtonItem) {
         if(self.selectedAnswere == Int(self.currentQuestionCorrectAnswere)) {
+            answereSet[self.questionNameLabel.text!] = true
+
             self.alert(message: "Correct Answere", title: "Success")
         }else {
+            answereSet[self.questionNameLabel.text!] = false
+
             self.alert(message: "Oops! you answered it incorrect", title: "Oops!")
         }
-        loadQuestion(self.currentIndex)
     }
 
     func showSummaryScreen(sender: UIBarButtonItem) {
@@ -70,7 +73,7 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let questionSummaryVC = segue.destination as? QuizSummaryViewController {
-            questionSummaryVC.answeres = sender as! [String:String]
+            questionSummaryVC.answeres = sender as! [String:Bool]
         }
     }
     
@@ -78,19 +81,22 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
        let currentQuestion = questionsSet[index] as! NSDictionary
         self.questionNameLabel.text = currentQuestion["questionName"] as? String
         currentQuestionOptions = currentQuestion["options"] as! [String]
-        self.detailTableView.reloadData()
-        
-        if(self.currentIndex < questionsSet.count - 1){
-            self.currentIndex += 1
-        } else {
+        self.currentIndex += 1
+        if(self.currentIndex == questionsSet.count) {
             self.navigationItem.rightBarButtonItem?.title = "Done"
-            self.navigationItem.rightBarButtonItem?.action = #selector(showSummaryScreen(sender:))
         }
+        self.detailTableView.reloadData()
     }
     
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: {_ in
+            if(self.currentIndex < self.questionsSet.count) {
+                self.loadQuestion(self.currentIndex)
+            } else {
+                self.performSegue(withIdentifier:"showSummary", sender:self.answereSet)
+            }
+            })
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }

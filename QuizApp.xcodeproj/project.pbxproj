@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E052CD5A1E0776510013E8CE /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E052CD591E0776510013E8CE /* SummaryCell.swift */; };
 		E07646251E031A35007EEEE6 /* tests_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07646241E031A35007EEEE6 /* tests_data.plist */; };
 		E0A411831E009CCA0072DD9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A411821E009CCA0072DD9F /* AppDelegate.swift */; };
 		E0A411881E009CCA0072DD9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A411861E009CCA0072DD9F /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E052CD591E0776510013E8CE /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		E07646241E031A35007EEEE6 /* tests_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests_data.plist; sourceTree = "<group>"; };
 		E0A4117F1E009CC90072DD9F /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A411821E009CCA0072DD9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				E07646261E0321F0007EEEE6 /* Controllers */,
 				E0A411821E009CCA0072DD9F /* AppDelegate.swift */,
 				E0A411A81E00B5000072DD9F /* RadioCell.swift */,
+				E052CD591E0776510013E8CE /* SummaryCell.swift */,
 				E0A411861E009CCA0072DD9F /* Main.storyboard */,
 				E07646241E031A35007EEEE6 /* tests_data.plist */,
 				E0A411891E009CCA0072DD9F /* Assets.xcassets */,
@@ -226,6 +229,7 @@
 				E0A411A51E009D3F0072DD9F /* QuizDetailViewController.swift in Sources */,
 				E0A411A91E00B5000072DD9F /* RadioCell.swift in Sources */,
 				E0A411831E009CCA0072DD9F /* AppDelegate.swift in Sources */,
+				E052CD5A1E0776510013E8CE /* SummaryCell.swift in Sources */,
 				E0A411A31E009D040072DD9F /* QuizListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,7 +48,7 @@ class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDat
             let selectedCell = tableView.cellForRow(at: sender as! IndexPath)
             let selectedTest = selectedCell?.textLabel?.text
             let selectedQuestionsSet = self.tests[selectedTest!] as! NSArray
-            print (selectedQuestionsSet)
+           // print (selectedQuestionsSet)
             
             if let questionDetailVC = segue.destination as? QuizDetailViewController {
                 questionDetailVC.questionsSet = selectedQuestionsSet as! Array<Any>
@@ -58,6 +58,7 @@ class QuizListViewController:UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBAction func unwindToTests(segue: UIStoryboardSegue) {
     }
+    
     //MARK: private methods
     func readPropertyList() {
         if let path = Bundle.main.path(forResource: "tests_data", ofType: "plist") {

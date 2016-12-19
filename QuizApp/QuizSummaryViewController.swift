@@ -11,7 +11,7 @@ import UIKit
 
 class QuizSummaryViewController:UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var answeres:[String:String] = [:]
+    var answeres:[String:Bool] = [:]
     
     @IBOutlet weak var sumaryTableView: UITableView!
     
@@ -24,7 +24,7 @@ class QuizSummaryViewController:UIViewController,UITableViewDelegate,UITableView
             action: #selector(backToTests(sender:))
         )
         self.navigationItem.leftBarButtonItem = leftButton
-
+        sumaryTableView.reloadData()
     }
     
     func backToTests(sender: UIBarButtonItem) {
@@ -37,9 +37,13 @@ class QuizSummaryViewController:UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "radioCell") as! RadioCell
-        cell.checked = false
-        cell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell
+        cell.summaryLabel.text = Array(answeres.keys)[indexPath.row] as String
+        if (Array(answeres.values)[indexPath.row] as Bool == true) {
+            cell.cellImage?.image = UIImage(named:"checkbox-selected")
+        }else {
+            cell.cellImage?.image = UIImage(named:"checkbox")
+        }
         return cell
     }
 

@@ -61,7 +61,7 @@
 	<array>
 		<dict>
 			<key>questionName</key>
-			<string>How long have you used our products/service?</string>
+			<string>How long have you been using our products/service?</string>
 			<key>options</key>
 			<array>
 				<string>Less than 6 months</string>
