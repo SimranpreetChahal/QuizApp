@@ -43,12 +43,12 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "radioCell") as! RadioCell
         cell.answereLabel.text = currentQuestionOptions[indexPath.row] as String
-        if(!cell.isChecked()){
+        if(!cell.checked){
             cell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
         }else {
             cell.radioButton.setImage(UIImage(named: "radio-selected"),for: UIControlState.normal)
             self.selectedAnswere = indexPath.row
-            cell.setIsChecked(false)
+            cell.checked = false
         }
         cell.delegate = self
 
@@ -106,7 +106,7 @@ class QuizDetailViewController:UIViewController,UITableViewDataSource, UITableVi
         } else {
             checkedCell.radioButton.setImage(UIImage(named: "radio"),for: UIControlState.normal)
         }
-        checkedCell.setIsChecked(on)
+        checkedCell.checked = on
         self.detailTableView.reloadData()
     }
 }

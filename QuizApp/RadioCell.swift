@@ -20,15 +20,7 @@ class RadioCell : UITableViewCell {
     var checked:Bool = false
     
     weak var delegate:RadioCellDelegate?
-    
-    func isChecked() -> Bool{
-        return self.checked
-    }
-    
-    func setIsChecked(_ value:Bool) {
-        self.checked = value
-    }
-    
+        
     @IBAction func checkCell(_ sender: Any) {
         let on = !self.checked
         self.checked = on
